@@ -48,5 +48,5 @@
 typedef struct {
 	char title[33];
 	char image[33];
-	char macro[33];
+	char keystroke[33];
 } Button;

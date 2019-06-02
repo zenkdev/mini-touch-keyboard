@@ -24,42 +24,42 @@ Button buttons[BUTTONS_COUNT] = {
     {
         "Format document", // title
         "test.bmp",        // image
-        "Shift+Alt+F",     // macro
+        "shift+alt+f",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "Shift+Alt+F",     // macro
+        "shift+alt+f",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "Shift+Alt+F",     // macro
+        "shift+alt+f",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "Shift+Alt+F",     // macro
+        "shift+alt+f",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "Shift+Alt+F",     // macro
+        "shift+alt+f",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "Shift+Alt+F",     // macro
+        "shift+alt+f",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "Shift+Alt+F",     // macro
+        "shift+alt+f",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "Shift+Alt+F",     // macro
+        "shift+alt+f",     // keystroke
     }};
 
 int16_t pressed_button = -1; // current pressed button
@@ -134,8 +134,7 @@ void button_handler()
           pressed_button = i;
           drawButtonBorder(pressed_button, BLUE);
 
-          Serial.print("Button pressed: ");
-          Serial.println(pressed_button);
+          Serial.println(buttons[pressed_button].keystroke);
         }
         break;
       }

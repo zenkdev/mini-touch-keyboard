@@ -1,0 +1,30 @@
+{
+  "name": "mini-touch-keyboard",
+  "version": "0.0.1",
+  "description": "Arduino mini touch keyboard",
+  "main": "src/pc-host/index.js",
+  "scripts": {
+    "start": "node ./src/pc-host/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trailblazer2006/mini-touch-keyboard.git"
+  },
+  "keywords": [
+    "arduino",
+    "hid",
+    "touch",
+    "keyboard"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trailblazer2006/mini-touch-keyboard/issues"
+  },
+  "homepage": "https://github.com/trailblazer2006/mini-touch-keyboard#readme",
+  "dependencies": {
+    "node-key-sender": "^1.0.11",
+    "serialport": "^7.1.5"
+  }
+}
