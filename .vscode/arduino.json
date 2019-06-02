@@ -1,0 +1,8 @@
+{
+    "board": "arduino:avr:uno",
+    "programmer": "AVRISP mkII",
+    "port": "COM6",
+    "sketch": "mini-touch-keyboard.ino",
+    "output": "./build",
+    "debugger": "jlink"
+}
