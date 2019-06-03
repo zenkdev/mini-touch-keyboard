@@ -10,8 +10,22 @@ port.pipe(parser);
 parser.on('data', line => {
   console.log(`> ${line}`);
 
-  const parts = line.split('+');
-  ks.sendCombination(parts);
+  const arrCommands = line.split(':').map(command => command.split('+'));
+  console.log(arrCommands);
+
+  let batch = ks.startBatch();
+  for (let n = 0; n < arrCommands.length; n += 1) {
+    batch = batch.batchTypeCombination(arrCommands[n]);
+  }
+
+  batch.sendBatch().then(
+    () => {
+      port.write('DONE\n');
+    },
+    reason => {
+      console.error(reason);
+    },
+  );
 });
-// port.write('ROBOT POWER ON\n');
-console.log('> ROBOT ONLINE');
+// port.write('KEYBOARD POWER ON\n');
+console.log('> KEYBOARD ONLINE');

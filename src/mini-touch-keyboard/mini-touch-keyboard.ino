@@ -24,42 +24,42 @@ Button buttons[BUTTONS_COUNT] = {
     {
         "Format document", // title
         "test.bmp",        // image
-        "shift+alt+f",     // keystroke
+        "shift+alt+f\n",     // keystroke
+    },
+    {
+        "Plus", // title
+        "test.bmp",        // image
+        "add\n",     // keystroke
+    },
+    {
+        "Multi command", // title
+        "test.bmp",        // image
+        "home:control+divide:down\n",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "shift+alt+f",     // keystroke
+        "shift+alt+f\n",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "shift+alt+f",     // keystroke
+        "shift+alt+f\n",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "shift+alt+f",     // keystroke
+        "shift+alt+f\n",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "shift+alt+f",     // keystroke
+        "shift+alt+f\n",     // keystroke
     },
     {
         "Format document", // title
         "test.bmp",        // image
-        "shift+alt+f",     // keystroke
-    },
-    {
-        "Format document", // title
-        "test.bmp",        // image
-        "shift+alt+f",     // keystroke
-    },
-    {
-        "Format document", // title
-        "test.bmp",        // image
-        "shift+alt+f",     // keystroke
+        "shift+alt+f\n",     // keystroke
     }};
 
 int16_t pressed_button = -1; // current pressed button
@@ -134,9 +134,27 @@ void button_handler()
           pressed_button = i;
           drawButtonBorder(pressed_button, BLUE);
 
-          Serial.println(buttons[pressed_button].keystroke);
+          Serial.print(buttons[pressed_button].keystroke);
         }
         break;
+      }
+    }
+  }
+}
+
+// Read commands from serial
+void read_serial()
+{
+  if (Serial.available())
+  {
+    String str = Serial.readString();
+
+    if (strcmp(str.c_str(), "DONE"))
+    {
+      if (pressed_button != -1)
+      {
+        drawButtonBorder(pressed_button, WHITE);
+        pressed_button = -1;
       }
     }
   }
@@ -199,6 +217,8 @@ void loop()
     loop_count++;
 
     button_handler();
+
+    read_serial();
 
     // every 0.2 second
     if (!(loop_count % 2))

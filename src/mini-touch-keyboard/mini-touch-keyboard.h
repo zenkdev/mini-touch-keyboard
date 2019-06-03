@@ -46,7 +46,7 @@
 #define BUTTONS_COUNT 8    // Number of buttons
 
 typedef struct {
-	char title[33];
-	char image[33];
-	char keystroke[33];
+	char title[30];
+	char image[30];
+	char keystroke[60];
 } Button;
