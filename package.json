@@ -25,6 +25,6 @@
   "homepage": "https://github.com/trailblazer2006/mini-touch-keyboard#readme",
   "dependencies": {
     "node-key-sender": "^1.0.11",
-    "serialport": "^9.0.0"
+    "serialport": "^10.0.0"
   }
 }
